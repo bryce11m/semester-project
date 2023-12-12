@@ -28,6 +28,8 @@ fig_points_per_game.update_traces(hovertemplate='Year: %{x}<br>Points Per Game: 
 
 st.plotly_chart(fig_points_per_game, use_container_width=True)
 
+player_df['Shooting.1'] = pd.to_numeric(player_df['Shooting.1'], errors='coerce')
+
 # Bar chart for Top 5 Positions and Shooting Percentages
 top_positions = player_df.groupby('position')['Shooting.1'].mean().nlargest(5).reset_index()
 fig_top_positions = px.bar(top_positions, x='position', y='Shooting.1',
