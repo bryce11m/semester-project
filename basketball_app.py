@@ -17,8 +17,8 @@ st.title('Basketball Player Statistics')
 st.subheader(f'Statistics for {selected_player}')
 
 # Line chart for Points Per Game
-fig_points_per_game = px.line(player_df, x='Unnamed: 2_level_0', y=('Per Game', 'Per Game.1'), 
-                              labels={'y': 'Points Per Game'}, title='Points Per Game Over the Years')
+fig_points_per_game = px.line(player_df, x='Unnamed: 2_level_0', y=[('Per Game', 'Per Game.1')],
+                              labels={'value': 'Points Per Game'}, title='Points Per Game Over the Years')
 fig_points_per_game.update_layout(hovermode='closest')  # Enable hover for tooltips
 fig_points_per_game.update_traces(hovertemplate='Year: %{x}<br>Points Per Game: %{y:.2f}')
 
