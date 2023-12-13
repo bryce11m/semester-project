@@ -35,31 +35,24 @@ st.write("This scatter plot displays the points per game for the selected player
          "Use the hover functionality to see detailed information for each data point.")
 st.plotly_chart(fig_points_per_game, use_container_width=True)
 
-# Shooting Percentage Bar Chart with a position dropdown
-st.header('Top 5 Positions and Shooting Percentages')
+# Bar chart for Shooting Percentage by Position with position selection
+st.header('Shooting Percentage by Position')
 
-# Dropdown for selecting a position
-selected_position_shooting = st.selectbox('Select Position for Shooting Percentages',
-                                          merged_df['position'].unique())
+# Sidebar: Position Selection
+selected_position_1 = st.sidebar.selectbox('Select Position 1', merged_df['position'].unique(), index=0)
+selected_position_2 = st.sidebar.selectbox('Select Position 2', merged_df['position'].unique(), index=1)
 
-# Filter data based on the selected position
-filtered_df_shooting = merged_df[merged_df['position'] == selected_position_shooting]
+# Filter data based on the selected positions
+filtered_df_positions = merged_df[(merged_df['position'] == selected_position_1) | (merged_df['position'] == selected_position_2)]
 
-# Convert 'Shooting.1' to numeric
-filtered_df_shooting['Shooting.1'] = pd.to_numeric(filtered_df_shooting['Shooting.1'], errors='coerce')
+# Bar chart for Shooting Percentage by Position
+fig_shooting_percentage = px.bar(filtered_df_positions, x='position', y='Shooting.1',
+                                  labels={'y': 'Shooting Percentage'}, title='Shooting Percentage by Position')
+fig_shooting_percentage.update_layout(hovermode='closest')  # Enable hover for tooltips
+fig_shooting_percentage.update_traces(hovertemplate='Position: %{x}<br>Shooting Percentage: %{y:.2f}')
 
-# Bar chart for Top 5 Positions and Shooting Percentages
-top_positions_shooting = filtered_df_shooting.groupby('position')['Shooting.1'].mean().nlargest(5).reset_index()
-fig_top_positions_shooting = px.bar(top_positions_shooting, x='position', y='Shooting.1',
-                                    labels={'y': 'Shooting Percentage'}, title='Top 5 Positions and Shooting Percentages')
-fig_top_positions_shooting.update_layout(hovermode='closest')  # Enable hover for tooltips
-fig_top_positions_shooting.update_traces(hovertemplate='Position: %{x}<br>Shooting Percentage: %{y:.2f}')
-
-# Description for the Shooting Percentage Bar Chart
-st.write("This bar chart displays the average shooting percentage for the top 5 positions played by the selected player "
-         "over the entire dataset. Use the hover functionality to see detailed information for each bar.")
-st.plotly_chart(fig_top_positions_shooting, use_container_width=True)
-
-# Add your third graph with a different interactive element and description here...
-
+# Description for the Shooting Percentage by Position chart
+st.write("This bar chart displays the shooting percentage for the selected positions. "
+         "Use the hover functionality to see detailed information for each bar.")
+st.plotly_chart(fig_shooting_percentage, use_container_width=True)
 
