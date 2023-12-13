@@ -8,10 +8,13 @@ merged_df = pd.read_csv('merged_basketball_data.csv')
 # Convert 'Unnamed: 2_level_0' to integer
 merged_df['Unnamed: 2_level_0'] = pd.to_numeric(merged_df['Unnamed: 2_level_0'], errors='coerce')
 
+# Convert 'Shooting.1' to numeric
+merged_df['Shooting.1'] = pd.to_numeric(merged_df['Shooting.1'], errors='coerce')
+
 # Main content
 st.title('Basketball Player Statistics')
 
-# Line chart for Points Per Game with a year range slider
+# Scatter plot for Points Per Game with a year range slider
 st.header('Points Per Game Over the Years')
 
 # Dropdown for selecting a range of years
@@ -23,18 +26,15 @@ year_range_points = st.slider('Select Year Range for Points Per Game',
 filtered_df_points = merged_df[(merged_df['Unnamed: 2_level_0'] >= year_range_points[0]) & 
                                 (merged_df['Unnamed: 2_level_0'] <= year_range_points[1])]
 
-# Line chart for Points Per Game
-fig_points_per_game = px.line(filtered_df_points, x='Unnamed: 2_level_0', y='Per Game',
-                              labels={'Per Game': 'Points Per Game'}, title='Points Per Game Over the Years',
-                              line_group='Per Game')
-fig_points_per_game.add_scatter(x=filtered_df_points['Unnamed: 2_level_0'], y=filtered_df_points['Per Game.1'],
-                                mode='lines', name='Other Points', line=dict(dash='dash'))
-
+# Scatter plot for Points Per Game
+fig_points_per_game = px.scatter(filtered_df_points, x='Unnamed: 2_level_0', y='Per Game',
+                                 labels={'Per Game': 'Points Per Game'}, title='Points Per Game Over the Years',
+                                 color='Per Game', size='Per Game', opacity=0.7)
 fig_points_per_game.update_layout(hovermode='closest')  # Enable hover for tooltips
 fig_points_per_game.update_traces(hovertemplate='Year: %{x}<br>Points Per Game: %{y:.2f}')
 
 # Description for the Points Per Game chart
-st.write("This line chart displays the points per game for the selected player over the selected range of years. "
+st.write("This scatter plot displays the points per game for the selected player over the selected range of years. "
          "Use the hover functionality to see detailed information for each data point.")
 st.plotly_chart(fig_points_per_game, use_container_width=True)
 
@@ -47,6 +47,9 @@ selected_position_shooting = st.selectbox('Select Position for Shooting Percenta
 
 # Filter data based on the selected position
 filtered_df_shooting = merged_df[merged_df['position'] == selected_position_shooting]
+
+# Convert 'Shooting.1' to numeric
+filtered_df_shooting['Shooting.1'] = pd.to_numeric(filtered_df_shooting['Shooting.1'], errors='coerce')
 
 # Bar chart for Top 5 Positions and Shooting Percentages
 top_positions_shooting = filtered_df_shooting.groupby('position')['Shooting.1'].mean().nlargest(5).reset_index()
@@ -61,6 +64,4 @@ st.write("This bar chart displays the average shooting percentage for the top 5 
 st.plotly_chart(fig_top_positions_shooting, use_container_width=True)
 
 # Add your third graph with a different interactive element and description here...
-
-
 
