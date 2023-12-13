@@ -61,7 +61,7 @@ fig_shooting_percentage.update_traces(hovertemplate='Position: %{x}<br>Shooting 
 fig_shooting_percentage.update_yaxes(range=[0, 60], dtick=5)
 
 # Description for the Shooting Percentage by Position chart
-st.write("This bar chart displays the shooting percentage for the selected positions. "
+st.write("This bar chart displays the shooting percentage for the selected positions. Notice for the positions that Point is for Point Guard, Shooting for Shooting Guard, Small for Small Foward, and Power for Power Forward. Also the positions labeled Guard/Forward, Guard, and Forward/Center were used for a few players with limited information that played in the early 1950s. "
          "Use the hover functionality to see detailed information for each bar.")
 st.plotly_chart(fig_shooting_percentage, use_container_width=True)
 
