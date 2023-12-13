@@ -26,8 +26,13 @@ fig_points_per_game.add_scatter(x=player_df['Unnamed: 2_level_0'], y=player_df['
 fig_points_per_game.update_layout(hovermode='closest')  # Enable hover for tooltips
 fig_points_per_game.update_traces(hovertemplate='Year: %{x}<br>Points Per Game: %{y:.2f}')
 
+# Description for the Points Per Game chart
+st.write("### Points Per Game Over the Years")
+st.write("This line chart displays the points per game for the selected player over the years. "
+         "Use the hover functionality to see detailed information for each data point.")
 st.plotly_chart(fig_points_per_game, use_container_width=True)
 
+# Shooting Percentage Bar Chart
 player_df['Shooting.1'] = pd.to_numeric(player_df['Shooting.1'], errors='coerce')
 
 # Bar chart for Top 5 Positions and Shooting Percentages
@@ -37,4 +42,13 @@ fig_top_positions = px.bar(top_positions, x='position', y='Shooting.1',
 fig_top_positions.update_layout(hovermode='closest')  # Enable hover for tooltips
 fig_top_positions.update_traces(hovertemplate='Position: %{x}<br>Shooting Percentage: %{y:.2f}')
 
+# Description for the Shooting Percentage Bar Chart
+st.write("### Top 5 Positions and Shooting Percentages")
+st.write("This bar chart displays the average shooting percentage for the top 5 positions played by the selected player. "
+         "Use the hover functionality to see detailed information for each bar.")
 st.plotly_chart(fig_top_positions, use_container_width=True)
+
+# Add your third graph with an interactive element and description here...
+
+# You can continue adding more graphs with their descriptions.
+
