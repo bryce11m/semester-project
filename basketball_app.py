@@ -57,6 +57,9 @@ fig_shooting_percentage = px.bar(filtered_df_positions, x='position', y='Shootin
 fig_shooting_percentage.update_layout(hovermode='closest')  # Enable hover for tooltips
 fig_shooting_percentage.update_traces(hovertemplate='Position: %{x}<br>Shooting Percentage: %{y:.2f}')
 
+# Set y-axis limits
+fig_shooting_percentage.update_yaxes(range=[0, 60], dtick=5)
+
 # Description for the Shooting Percentage by Position chart
 st.write("This bar chart displays the shooting percentage for the selected positions. "
          "Use the hover functionality to see detailed information for each bar.")
