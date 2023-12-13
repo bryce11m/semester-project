@@ -8,11 +8,8 @@ merged_df = pd.read_csv('merged_basketball_data.csv')
 # Convert 'Unnamed: 2_level_0' to integer
 merged_df['Unnamed: 2_level_0'] = pd.to_numeric(merged_df['Unnamed: 2_level_0'], errors='coerce')
 
-# Convert 'Shooting.1' to numeric
-merged_df['Shooting.1'] = pd.to_numeric(merged_df['Shooting.1'], errors='coerce')
-
-# Main content
-st.title('Basketball Player Statistics')
+# Convert 'Per Game' to numeric
+merged_df['Per Game'] = pd.to_numeric(merged_df['Per Game'], errors='coerce')
 
 # Scatter plot for Points Per Game with a year range slider
 st.header('Points Per Game Over the Years')
