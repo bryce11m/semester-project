@@ -5,6 +5,9 @@ import plotly.express as px
 # Load the merged basketball data
 merged_df = pd.read_csv('merged_basketball_data.csv')
 
+# Convert 'Unnamed: 2_level_0' to integer
+merged_df['Unnamed: 2_level_0'] = pd.to_numeric(merged_df['Unnamed: 2_level_0'], errors='coerce')
+
 # Main content
 st.title('Basketball Player Statistics')
 
