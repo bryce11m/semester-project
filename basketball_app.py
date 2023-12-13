@@ -11,6 +11,12 @@ merged_df['Unnamed: 2_level_0'] = pd.to_numeric(merged_df['Unnamed: 2_level_0'],
 # Convert 'Per Game' to numeric
 merged_df['Per Game'] = pd.to_numeric(merged_df['Per Game'], errors='coerce')
 
+# Convert 'Shooting' to numeric
+merged_df['Shooting'] = pd.to_numeric(merged_df['Shooting'], errors='coerce')
+
+# Set the app title
+st.title('Basketball Statistics for the Atlanta Hawks')
+
 # Scatter plot for Points Per Game with a year range slider
 st.header('Points Per Game Over the Years')
 
@@ -46,7 +52,7 @@ selected_position_2 = st.selectbox('Select Position 2', merged_df['position'].un
 filtered_df_positions = merged_df[(merged_df['position'] == selected_position_1) | (merged_df['position'] == selected_position_2)]
 
 # Bar chart for Shooting Percentage by Position
-fig_shooting_percentage = px.bar(filtered_df_positions, x='position', y='Shooting.1', color='position',
+fig_shooting_percentage = px.bar(filtered_df_positions, x='position', y='Shooting', color='position',
                                   labels={'y': 'Shooting Percentage'}, title='Shooting Percentage by Position')
 fig_shooting_percentage.update_layout(hovermode='closest')  # Enable hover for tooltips
 fig_shooting_percentage.update_traces(hovertemplate='Position: %{x}<br>Shooting Percentage: %{y:.2f}')
@@ -55,4 +61,5 @@ fig_shooting_percentage.update_traces(hovertemplate='Position: %{x}<br>Shooting 
 st.write("This bar chart displays the shooting percentage for the selected positions. "
          "Use the hover functionality to see detailed information for each bar.")
 st.plotly_chart(fig_shooting_percentage, use_container_width=True)
+
 
