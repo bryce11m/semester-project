@@ -39,14 +39,14 @@ st.plotly_chart(fig_points_per_game, use_container_width=True)
 st.header('Shooting Percentage by Position')
 
 # Sidebar: Position Selection
-selected_position_1 = st.sidebar.selectbox('Select Position 1', merged_df['position'].unique(), index=0)
-selected_position_2 = st.sidebar.selectbox('Select Position 2', merged_df['position'].unique(), index=1)
+selected_position_1 = st.selectbox('Select Position 1', merged_df['position'].unique(), index=0)
+selected_position_2 = st.selectbox('Select Position 2', merged_df['position'].unique(), index=1)
 
 # Filter data based on the selected positions
 filtered_df_positions = merged_df[(merged_df['position'] == selected_position_1) | (merged_df['position'] == selected_position_2)]
 
 # Bar chart for Shooting Percentage by Position
-fig_shooting_percentage = px.bar(filtered_df_positions, x='position', y='Shooting.1',
+fig_shooting_percentage = px.bar(filtered_df_positions, x='position', y='Shooting.1', color='position',
                                   labels={'y': 'Shooting Percentage'}, title='Shooting Percentage by Position')
 fig_shooting_percentage.update_layout(hovermode='closest')  # Enable hover for tooltips
 fig_shooting_percentage.update_traces(hovertemplate='Position: %{x}<br>Shooting Percentage: %{y:.2f}')
