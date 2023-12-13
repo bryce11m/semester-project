@@ -37,8 +37,7 @@ fig_points_per_game.update_layout(hovermode='closest')  # Enable hover for toolt
 fig_points_per_game.update_traces(hovertemplate='Year: %{x}<br>Points Per Game: %{y:.2f}')
 
 # Description for the Points Per Game chart
-st.write("This scatter plot displays the points per game for the selected player over the selected range of years. "
-         "Use the hover functionality to see detailed information for each data point.")
+st.write("This scatter plot displays the range of points per game players had for each given year. Use the slider to compare the range of points per game over the course of a range of years.")
 st.plotly_chart(fig_points_per_game, use_container_width=True)
 
 # Bar chart for Shooting Percentage by Position with position selection
