@@ -32,8 +32,7 @@ filtered_df_points = merged_df[(merged_df['Unnamed: 2_level_0'] >= year_range_po
 # Scatter plot for Points Per Game
 fig_points_per_game = px.scatter(filtered_df_points, x='Unnamed: 2_level_0', y='Per Game',
                                  labels={'Per Game': 'Points Per Game'}, title='Points Per Game Over the Years',
-                                 color='Per Game', size='Per Game', opacity=1.3)
-
+                                 color='Per Game', size='Per Game', opacity=1.0)
 fig_points_per_game.update_layout(hovermode='closest')  # Enable hover for tooltips
 fig_points_per_game.update_traces(hovertemplate='Year: %{x}<br>Points Per Game: %{y:.2f}')
 fig_points_per_game.update_layout(xaxis_title='Year')
