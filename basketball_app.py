@@ -51,15 +51,13 @@ selected_position_2 = st.selectbox('Select Position 2', merged_df['position'].un
 # Filter data based on the selected positions
 filtered_df_positions = merged_df[(merged_df['position'] == selected_position_1) | (merged_df['position'] == selected_position_2)]
 
-# Calculate the average shooting percentage for each position
-avg_shooting_by_position = merged_df.groupby('position')['Shooting'].mean().reset_index()
-
 # Bar chart for Shooting Percentage by Position
-fig_shooting_percentage = px.bar(avg_shooting_by_position, x='position', y='Shooting',
-                                  labels={'y': 'Average Shooting Percentage'}, title='Average Shooting Percentage by Position')
+fig_shooting_percentage = px.bar(filtered_df_positions, x='position', y='Shooting', color='position',
+                                  labels={'y': 'Shooting Percentage'}, title='Shooting Percentage by Position')
+                                  
 fig_shooting_percentage.update_layout(hovermode='closest')  # Enable hover for tooltips
 fig_shooting_percentage.update_traces(hovertemplate='Position: %{x}<br>Shooting Percentage: %{y:.2f}')
-fig_shooting_percentage.update_layout(xaxis_title='Position', yaxis_title='Average Shooting Percentage')
+fig_shooting_percentage.update_layout(xaxis_title='Position', yaxis_title='Shooting Percentage')
 
 # Set y-axis limits
 fig_shooting_percentage.update_yaxes(range=[0, 60], dtick=5)
