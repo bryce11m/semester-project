@@ -1,0 +1,40 @@
+Peer Feedback I have received:
+
+From Nate Lewis:
+
+Data Collection: 
+For the blocks of code I’d consider putting “python” after the ticks because it makes it a bit easier to read and more visually interesting. So in the code have it look like:
+```python
+{code}
+```
+Also to me the conclusion reads more like the conclusion for for an EDA post than a data collection post. I’d maybe even consider straight up copying and pasting that part into your EDA blog and rewriting a new one for data collection from scratch. 
+
+EDA: 
+Like you said this one is pretty rough right now but I think it’s a good jumping off point. In terms of showing the plots I just saved the plots as images and then saved them in my blog's repository in the images file. In the code for the post you then just put 
+
+<img src="{{site.url}}/{{site.baseurl}}/assets/images/name_of_file.png" alt="" style="width:600px;"/>
+
+and then it should show up as an image in your post.
+ Also, I'd probably move the "Questions for Exploration" section close to the beginning of your post.
+
+Streamlit App:
+On the points per game over the years plot its pretty hard to see the dots on the scatterplot for lower ppg individuals due to the color/opacity so maybe fiddle with the settings there to improve readability. On the same plot, the label for the x-axis is currently showing up as "Unnamed: 2_level_0" so make sure to go in and fix that before the final submission.
+On the shooting percentage per position section it appears that the default option for position 1 is nan so I'd probably switch that up to something else. For the plot it looks like right now its just summing the shooting percentage for each player in a certain position. I think it probably would make more sense to have this be the mean for each position instead.
+Also don't forget to add the github link somewhere on your app.
+
+Overall, I think what you have right now is a solid start and with a handful of tweaks it should be able to get that tier 1 grade.
+
+
+The changes I made because of the feedback:
+
+data collection blog post:
+- I did add python to my chunks of code for the data collection blog post just so the code stood out more and was visually appealing. 
+- I rewrote the cocnlusion so that it summed up what I said earlier and just restated the point and goal of the blog post. I also took the old conclusion and used it for my conclusion on the EDA blog post.
+
+EDA blog post:
+- Thanks to Nate I was able to put in each of my plots effectively with the code he gave me.
+- I restructured the post so that the flow was a lot smoother. I also added detail and made sure that with each graph I answered one of the questions that I mentioned earlier in the post.
+
+Streamlit App:
+- I changed both graphs so that they were easier to follow and understand. I also cleaned up the labels. I changed up the second graph a little bit to where it showed average shooting percentages for each position.
+- I added links to both my blog and GitHub Repository.
