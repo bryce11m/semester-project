@@ -3,6 +3,8 @@ Peer Feedback I have received:
 Topic Feedback:
 I asked Nate Lewis, Justin Ross, and Tyler Smith for feedback on my topic about collecting data from players that have played for the Atlanta Hawks throughout the whole teams history. All of them mentioned that they liked the idea and liked that it was topic that I would really be interested and invested in. The one thing they mentioned to me was to make sure my questions were narrowed down to one topic since there was so much information available from the website. They said to avoid broad questions and to focus on a couple of different statistics to analyze.
 
+My response: I chose to focus my questions and research to the shooting percentages of the players. I decided I was going to group by year and position and to look at a couple statistics related to shooting and nothing else.
+
 About the blog and streamlit app:
 
 From Nate Lewis:

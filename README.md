@@ -1,1 +1,2 @@
 # semester-project
+The purpose of the respository is to explore data related to players throughout the history of the Atlanta Hawks professional basketball team. This repository includes code for data collection, data cleaning, and exploratory data analysis. It also contains code for a streamlit app where I created a platform for people to interact and visual see the findings I made while exploring the data. This code is meant for collaboration and exploration.
