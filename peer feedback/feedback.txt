@@ -7,6 +7,9 @@ My response: I chose to focus my questions and research to the shooting percenta
 
 About the blog and streamlit app:
 
+This is the SHA number for the last commit of the first draft of the data collection post: fd9d129939456dd1958cae47e6868857daaef7da
+This is the SHA number for the last commit of the first draft of the EDA post: b6ce4f2c9713b7e95005449760690d756c84def9
+
 From Nate Lewis:
 
 Data Collection: 
@@ -45,3 +48,4 @@ EDA blog post:
 Streamlit App:
 - I changed both graphs so that they were easier to follow and understand. I also cleaned up the labels. I changed up the second graph a little bit to where it showed average shooting percentages for each position.
 - I added links to both my blog and GitHub Repository.
+- For the first graph I changed the opacity of the colors so it stood out more and made the graph easier to follow.
