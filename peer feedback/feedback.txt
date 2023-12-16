@@ -49,3 +49,25 @@ Streamlit App:
 - I changed both graphs so that they were easier to follow and understand. I also cleaned up the labels. I changed up the second graph a little bit to where it showed average shooting percentages for each position.
 - I added links to both my blog and GitHub Repository.
 - For the first graph I changed the opacity of the colors so it stood out more and made the graph easier to follow.
+
+From Tyler Smith: 
+
+Dashboard:
+	⁃	Noticed an error when I got to 1951 and 1950 on the first slider
+	⁃	Add some other graphics from your EDA into the dashboard
+
+Data Collection:
+	⁃	Conclusion focuses on data collection and wraps things up nicely
+	⁃	The code chunks look great
+	⁃	You could maybe delve a little deeper into how you adhered to Basketball Reference’s terms of services
+
+EDA:
+	⁃	The plots look great! They tell a cool story about Atlanta Hawks’ performance
+	⁃	Consider specifying that your analysis focuses on the Atlanta Hawks in your intro. You don’t mention that your analysis is on Hawks data until later on in the blog.
+	⁃	Consider driving home the points that your plots are showing so that your audience know what the main takeaways are.
+	⁃	The line chart font is a little hard to see. I would change the figure size or just change the font size so it’s a little easier to read.
+
+Changes I made due to this feedback: 
+- I fixed the slider for the first graph on the dashboard and made that graph more visually appealing. 
+- I added to the ethical considerations section in the data collection post by adding more detail of how I adhered to Basketball Reference's terms of services.
+- For the EDA post I added to the Intro to give more background to what the analysis was on. I was provided more detail to how the plots were answering the research questions.
